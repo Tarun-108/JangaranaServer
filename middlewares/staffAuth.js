@@ -1,13 +1,13 @@
 const jwt = require("jsonwebtoken")
-const User = require("../models/user")
+const Staff = require("../models/staff")
 
 const auth = async ( req , res , next ) => {
     try {
         const token = req.header("Authorization").replace('Bearer ' , '')
         const decodedToken = jwt.verify( token , process.env.SECRET )
-        User.findOne(  { '_id': decodedToken._id } , ( err , user ) =>
+        Staff.findOne(  { '_id': decodedToken._id } , ( err , staff ) =>
         {
-            if(err || !user) {
+            if(err || !staff) {
                 res.status(401).send({
                     error : "Please Authenticate "
                 })
@@ -17,7 +17,7 @@ const auth = async ( req , res , next ) => {
         })
     } catch( e ) {
         res.status(401).send({
-            error : "Please Authenticate 22"
+            error : "Please Authenticate"
         })
     }
 }
