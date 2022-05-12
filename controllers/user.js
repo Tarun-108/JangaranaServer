@@ -30,14 +30,14 @@ exports.signup = (req, res)=>{
                 service: 'gmail',
                 auth: {
                     user: 'a.antsapps@gmail.com',
-                    pass: 'qybdrvmddxnivpqu'
+                    pass: 'cibuihfdoqslsltk'
                 }
             });
             const mailOptions = {
                 from: 'a.antsapps@gmail.com',
                 to: email,
                 subject: 'Census 2022: Verification OTP',
-                text: `You have registered as a Family-Head in Jangarana App. Please verify your email ${email}.The OTP to verify you registered email id is ${otp}.\n\nNote:Add your details carefully in the application as it is very important that every user provides authentic data for Census\n\nRegards,\nJangarana Team`
+                text: `You have registered as a Family-Head in Jangarana App. Please verify your email.The OTP to verify you registered email id is ${otp}.\n\nNote:Add your details carefully in the application as it is very important that every user provides authentic data for Census\n\nRegards,\nJangarana Team`
             };
 
             transporter.sendMail(mailOptions, (error, info) => {

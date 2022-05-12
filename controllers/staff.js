@@ -2,7 +2,6 @@ const Staff = require("../models/staff")
 const {validationResult} = require("express-validator")
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
-const smtpTransport = require('nodemailer-smtp-transport');
 require('express-jwt');
 
 exports.signup = (req, res)=>{
@@ -28,18 +27,18 @@ exports.signup = (req, res)=>{
 
             const token = jwt.sign({staffname: staffname, email: email, password: password, otpCoded: otp}, process.env.SECRET)
 
-            const transporter = nodemailer.createTransport(smtpTransport({
+            const transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    staff: 'a.antsapps@gmail.com',
-                    pass: 'qybdrvmddxnivpqu'
+                    user: 'a.antsapps@gmail.com',
+                    pass: 'cibuihfdoqslsltk'
                 }
-            }));
+            });
             const mailOptions = {
                 from: 'a.antsapps@gmail.com',
                 to: email,
                 subject: 'Census 2022: Verification OTP',
-                text: `You have registered as a Staff Member in Jangarana App. Please verify your email ${email}.The OTP to verify you registered email id is ${otp}.\n\nNote:Add the details carefully in the application as it is very important that every staff provides authentic data for Census\n\nRegards,\nJangarana Team`
+                text: `You have registered as a Staff Member in Jangarana App. Please verify your email.The OTP to verify you registered email id is ${otp}.\n\nNote:Add the details carefully in the application as it is very important that every staff provides authentic data for Census\n\nRegards,\nJangarana Team`
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
@@ -124,13 +123,13 @@ exports.signin = (req, res) => {
         // Send response
         const {_id, staffname, email} = staff
 
-        const transporter = nodemailer.createTransport(smtpTransport({
+        const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                staff: 'a.antsapps@gmail.com',
-                pass: 'qybdrvmddxnivpqu'
+                user: 'a.antsapps@gmail.com',
+                pass: 'cibuihfdoqslsltk'
             }
-        }));
+        });
         const mailOptions = {
             from: 'a.antsapps@gmail.com',
             to: email,
