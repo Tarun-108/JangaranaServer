@@ -38,7 +38,7 @@ staffSchema.virtual("password")
         return this.password
     })
 
-userSchema.methods = {
+staffSchema.methods = {
     authenticate: function(rawPassword){
         return this.encrypted_password === this.securePassword(rawPassword)
     },

@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 require('express-jwt');
 const {validationResult} = require("express-validator");
-const staff = require("../models/staff");
 
 
 exports.signup = (req, res)=>{
