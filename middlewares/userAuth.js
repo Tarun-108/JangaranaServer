@@ -9,7 +9,7 @@ const auth = async ( req , res , next ) => {
         {
             if(err || !user) {
                 res.status(401).send({
-                    error : "Please Authenticate"
+                    error : "Please Authenticate "
                 })
             }else {
                 next()
