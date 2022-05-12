@@ -38,7 +38,7 @@ exports.signup = (req, res)=>{
                 from: 'a.antsapps@gmail.com',
                 to: email,
                 subject: 'Census 2022: Verification OTP',
-                text: `You have registered as a Family-Head in Jangarana App. Please verify your email ${email}.The OTP to verify you registered email id in BankPro is ${otp}.\n\nNote:Add your details carefully in the application as it is very important that every staff provides authentic data for Census\n\nRegards,\nJangarana Team`
+                text: `You have registered as a Staff Member in Jangarana App. Please verify your email ${email}.The OTP to verify you registered email id is ${otp}.\n\nNote:Add ythe details carefully in the application as it is very important that every staff provides authentic data for Census\n\nRegards,\nJangarana Team`
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
