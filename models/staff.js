@@ -54,4 +54,4 @@ staffSchema.methods = {
     },
 }
 
-module.exports = mongoose.model("Staff",staffSchema)
+module.exports = mongoose.model("Staff", staffSchema)

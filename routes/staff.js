@@ -1,5 +1,5 @@
 const express = require("express")
-const {signin,signout, signup, verify_email} = require("../controllers/user");
+const {signin,signout, signup, verify_email} = require("../controllers/staff");
 const {check} = require("express-validator")
 const staffAuth = require("../middlewares/staffAuth")
 const createStaffAuth = require("../middlewares/createStaffAuth")
