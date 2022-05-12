@@ -14,7 +14,6 @@ router.post('/signup',createStaffAuth ,[
 
 router.post("/verify_email", createStaffAuth, verify_email)
 
-
 router.post('/signin', signin)
 
 router.get("/signout", staffAuth ,signout)
