@@ -8,6 +8,7 @@ exports.signup = (req, res)=>{
     const errors = validationResult(req)
     if(!errors.isEmpty()){
         return res.status(400).json({
+            message: "Initial error",
             error: errors.array()[0].msg
         })
     }
@@ -43,6 +44,7 @@ exports.signup = (req, res)=>{
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
                     res.json({
+                        message: "Mail not send.",
                         error: error
                     })
                 }
