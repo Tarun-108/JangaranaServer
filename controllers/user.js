@@ -75,6 +75,8 @@ exports.verify_email = (req,res) => {
             if (otp.toString() === otpCoded.toString()) {
                 const user = new User({name, email, password})
 
+
+
                 user.save((e, user) => {
                     if (e) {
                         return res.status(400).json({
@@ -82,8 +84,17 @@ exports.verify_email = (req,res) => {
                         })
                     }
 
+                    //token generation here only so no need to signin
+                    //api will sign in family head after email verification only
+                    const token = jwt.sign({_id: user._id}, process.env.SECRET)
+
+                    // Put token in cookie
+                    res.cookie('token', token, {expire: new Date() + 1})
+
+
                     return res.status(200).json({
-                        message: "User Registered Signin to Continue",
+                        message: "User Registered and signed in successfully",
+                        token: token,
                         user
                     })
                 })
