@@ -1,12 +1,11 @@
 const express = require("express")
-const {create} = require("../controllers/fertility");
-const {check} = require("express-validator")
-const staffAuth = require("../middlewares/staffAuth")
-const createStaffAuth = require("../middlewares/createStaffAuth")
+const { create } = require("../controllers/fertility");
+const { check } = require("express-validator")
+const staffUserAuth = require("../middlewares/staffUserAuth")
 const router = express.Router()
 
 
-router.post("/create", staffAuth , create)
+router.post("/create", staffUserAuth, create)
 
 
 module.exports = router
