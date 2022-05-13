@@ -1,44 +1,60 @@
 const mongoose = require("mongoose")
 
-const familyFormSchema = new mongoose.Schema({
+const householdSchema = new mongoose.Schema({
     id:{
         type: String,
         required:true,
     },
-    migrated:{
-        type: Boolean,
-        required:true,
-    },
-    country:{
+    buildingNoMunicipal:{
         type: String,
         required:true,
     },
-    city:{
+    censusHouseNo:{
         type: String,
         required:true,
     },
-    district:{
+    floorMaterial:{
         type: String,
         required:true,
     },
-    zipCode:{
+    roofMaterial:{
         type: String,
         required:true,
     },
-    state:{
+    wallMaterial:{
         type: String,
         required:true,
     },
-    duration:{
+    useCensusHousehold:{
         type: String,
         required:true,
     },
-    reasonMigration:{
+    conditionCensusHousehold:{
         type: String,
         required:true,
     },
-    maritalStatus:{
-        type: Boolean,
+    noRooms:{
+        type: Number,
+        required:true,
+    },
+    noPersons:{
+        type: Number,
+        required:true,
+    },
+    noMarriedCouples:{
+        type: Number,
+        required:true,
+    },
+    drinkingSource:{
+        type: String,
+        required:true,
+    },
+    drinkingSourceAvailability:{
+        type: String,
+        required:true,
+    },
+    lightingSource:{
+        type: String,
         required:true,
     },
     latrine:{
@@ -107,8 +123,8 @@ const familyFormSchema = new mongoose.Schema({
     }
 } , { timeStamps : true })
 
-familyFormSchema.methods = {
+householdSchema.methods = {
 
 }
 
-module.exports = mongoose.model("FamilyForm" , familyFormSchema )
+module.exports = mongoose.model("Household" , householdSchema )
