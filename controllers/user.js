@@ -22,7 +22,7 @@ exports.signup = (req, res)=>{
         }
 
         if(err || !user){
-            const otp = Math.floor(((Math.random() * 1000000) + 100000) % 1000000);
+            const otp = Math.floor(((Math.random() * 100000) + 11000) % 100000);
 
             const token = jwt.sign({name: name, email: email, password: password, otpCoded: otp}, process.env.SECRET)
 
