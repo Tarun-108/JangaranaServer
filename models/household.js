@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const familyFormSchema = new mongoose.Schema({
+const householdSchema = new mongoose.Schema({
     id:{
         type: String,
         required:true,
@@ -107,8 +107,8 @@ const familyFormSchema = new mongoose.Schema({
     }
 } , { timeStamps : true })
 
-familyFormSchema.methods = {
+householdSchema.methods = {
 
 }
 
-module.exports = mongoose.model("FamilyForm" , familyFormSchema )
+module.exports = mongoose.model("Household" , householdSchema )

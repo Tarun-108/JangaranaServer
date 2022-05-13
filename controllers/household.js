@@ -1,10 +1,10 @@
-const FamilyForm = require("../models/familyForm")
+const Household = require("../models/household")
 require('express-jwt');
 
 const create = (req, res) => {
     const { id } = req.body
 
-    FamilyForm.findOne({ id }, (err, form) => {
+    Household.findOne({ id }, (err, form) => {
         if (form) {
             res.status(400).json({
                 message: "Id Already Exists ."
@@ -13,9 +13,9 @@ const create = (req, res) => {
 
         if (err || !form) {
 
-            const familyForm = new FamilyForm(req.body)
+            const household = new Household(req.body)
 
-            familyForm.save((e, form) => {
+            household.save((e, form) => {
                 if (e) {
                     return res.status(400).json({
                         error: "Id Already exits ." + e,
