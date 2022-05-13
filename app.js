@@ -28,12 +28,14 @@ app.use(cors())
 const userRoutes = require("./routes/user")
 const staffRoutes = require("./routes/staff")
 const formRoutes = require("./routes/form")
+const familyFormRoutes = require("./routes/familyForm")
 
 
 //Using routes
 app.use('/api/auth', userRoutes)
 app.use('/api/staff-auth', staffRoutes)
 app.use('/api/form',formRoutes)
+app.use('/api/familyForm' , formRoutes)
 
 const port = process.env.PORT || 8000
 
