@@ -13,7 +13,7 @@ exports.signup = (req, res)=>{
         })
     }
 
-    const {staffname,email,password} = req.body
+    const {name,email,password} = req.body
 
     Staff.findOne({email}, (err, staff) => {
         if(staff){
@@ -25,7 +25,7 @@ exports.signup = (req, res)=>{
         if(err || !staff){
             const otp = Math.floor(((Math.random() * 1000000) + 100000) % 1000000);
 
-            const token = jwt.sign({staffname: staffname, email: email, password: password, otpCoded: otp}, process.env.SECRET)
+            const token = jwt.sign({name: name, email: email, password: password, otpCoded: otp}, process.env.SECRET)
 
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
@@ -72,10 +72,10 @@ exports.verify_email = (req,res) => {
                 })
             }
 
-            const {staffname, email, password, otpCoded} = decodedToken;
+            const {name, email, password, otpCoded} = decodedToken;
 
             if (otp.toString() === otpCoded.toString()) {
-                const staff = new Staff({staffname, email, password})
+                const staff = new Staff({name, email, password})
 
                 staff.save((e, staff) => {
                     if (e) {
@@ -121,7 +121,7 @@ exports.signin = (req, res) => {
         res.cookie('token', token, {expire: new Date() + 1})
 
         // Send response
-        const {_id, staffname, email} = staff
+        const {_id, name, email} = staff
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -148,7 +148,7 @@ exports.signin = (req, res) => {
                     token,
                     staff: {
                         _id,
-                        staffname,
+                        name,
                         email
                     }
                 })
