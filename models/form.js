@@ -110,7 +110,7 @@ const formSchema = new mongoose.Schema({
         required:true,
     },
     modeOfTravel:{
-        type: Number,
+        type: String,
         required:true,
     }
 } , { timeStamps : true })
