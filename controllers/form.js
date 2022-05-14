@@ -49,6 +49,13 @@ const create = (req, res) => {
     var footTravelCount = 0
     var cycleTravelCount = 0
 
+    if (req.body.gender === "male") {
+        maleCount ++ ;
+    }
+    else {
+        femaleCount ++ ;
+    }
+
     if (req.body.maritalStatus) {
         marriedCount++;
     }
@@ -56,10 +63,10 @@ const create = (req, res) => {
         unmarriedCount++;
     }
 
-    if (req.body.ageMarried < 18) {
+    if (req.body.ageMarried < 18 && req.body.ageMarried > 0) {
         marriedBefore18++;
     }
-    else {
+    else if ( req.body.ageMarried > 18 ) {
         marriedAfter18++;
     }
 
@@ -215,8 +222,8 @@ const create = (req, res) => {
     }
 
 
-    Census.findOne({ censusId }, (err, census) => {
-        if (census) {
+    Census.findOne({ censusId }, (err, cibil) => {
+        if (cibil) {
             
             Census.updateOne({ censusId }, {
                 $set: {
@@ -267,36 +274,27 @@ const create = (req, res) => {
                 if (err) {
                     console.log("Error found ." + err)
                 } else {
-                    return res.status(200).json({
-                        message: "Census UPdated Successfully",
-                        response
-                    })
+                    
                 }
             })
         }
 
-        if (err || !census) {
+        if (err || !cibil) {
 
-            const census = new Census(censusId, mohalla, city, district, zipCode, state, maleCount, femaleCount
+            const census = new Census({censusId, mohalla, city, district, zipCode, state, maleCount, femaleCount
                 , marriedCount, unmarriedCount, marriedBefore18, marriedAfter18, hinduCount, muslimCount, sikhCount,
                 christianCount, hindiCount, englishCount, marathiCount, punjabiCount, disabledCount, notDisabledCount,
                 literateCount, illiterateCount, panditCount, baniyaCount, pass10Count, pass12Count, underGraduateCount,
                 postGraduateCount, doctorateCount, farmerCount, dailyWageWorkerCount, sportspersonCount, engineerCount,
                 docterCount, primaryServiceCount, secondaryServiceCount, workedLastYearCount, notWorkedLastYearCount,
                 lookingJobCount, notLookingJobCount, distance10kmLessCount, distance10kmMoreCount, carTravelCount,
-                bikeTravelCount, footTravelCount, cycleTravelCount)
+                bikeTravelCount, footTravelCount, cycleTravelCount})
 
             census.save((e, census) => {
                 if (e) {
-                    return res.status(400).json({
-                        error: "Id Already exits ." + e,
-                    })
+                    console.log(e) 
                 }
-
-                return res.status(200).json({
-                    message: "Successfully Saved the details",
-                    census
-                })
+                console.log(census)
             })
 
         }
