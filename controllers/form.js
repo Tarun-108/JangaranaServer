@@ -3,14 +3,9 @@ const Census = require("../models/census")
 require('express-jwt');
 
 const create = (req, res) => {
-    const { id } = req.body
+    const { id , mohalla , city , district , zipCode , state } = req.body
 
-    const censusId = req.body.mohalla + req.body.city + req.body.district + req.body.zipCode + req.body.state
-    const mohalla = req.body.mohalla
-    const city = req.body.city
-    const district = req.body.district
-    const zipCode = req.body.zipCode
-    const state = req.body.state
+    const censusId = mohalla + city + district + zipCode + state
     var maleCount = 0
     var femaleCount = 0
     var marriedCount = 0
