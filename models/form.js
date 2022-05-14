@@ -101,7 +101,7 @@ const formSchema = new mongoose.Schema({
         type: Boolean,
         required:true,
     },
-    LookingForWork:{
+    lookingForWork:{
         type: Boolean,
         required:true,
     },
