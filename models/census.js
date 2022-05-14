@@ -1,9 +1,29 @@
 const mongoose = require("mongoose")
 
 const censusSchema = new mongoose.Schema({
-    id: {
+    censusId: {
         type: String,
         required: true,
+    },
+    mohalla:{
+        type: String,
+        required:true,
+    },
+    city:{
+        type: String,
+        required:true,
+    },
+    district:{
+        type: String,
+        required:true,
+    },
+    zipCode:{
+        type: String,
+        required:true,
+    },
+    state:{
+        type: String,
+        required:true,
     },
     maleCount: {
         type: Number,
@@ -14,6 +34,10 @@ const censusSchema = new mongoose.Schema({
         required: true,
     },
     marriedCount: {
+        type: Number,
+        required: true,
+    },
+    unmarriedCount: {
         type: Number,
         required: true,
     },
@@ -57,11 +81,11 @@ const censusSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    hearingLossCount: {
+    disabledCount: {
         type: Number,
         required: true,
     },
-    visionLossCount: {
+    notDisabledCount: {
         type: Number,
         required: true,
     },
