@@ -93,7 +93,7 @@ const formSchema = new mongoose.Schema({
         type: String,
         required:true,
     },
-    class:{
+    _class:{
         type: String,
         required:true,
     },
