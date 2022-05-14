@@ -193,6 +193,7 @@ const censusSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+
 }, { timeStamps: true })
 
 censusSchema.methods = {
