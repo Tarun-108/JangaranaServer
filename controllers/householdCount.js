@@ -5,9 +5,9 @@ const nodemailer = require('nodemailer');
 require('express-jwt');
 
 const get = (req, res) => {
-    const { id } = req.body
+    const { censusId } = req.body
 
-    HouseholdCount.findOne({ id }, (err, count) => {
+    HouseholdCount.findOne({ censusId }, (err, count) => {
         if (loan) {
             res.status(200).json({
                 message: "Household Details",
