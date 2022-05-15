@@ -32,6 +32,7 @@ const householdRoutes = require("./routes/household")
 const migrationRoutes = require("./routes/migration")
 const fertilityRoutes = require("./routes/fertility")
 const householdCountRoutes = require("./routes/householdCount")
+const censusRoutes = require("./routes/census")
 
 //Using routes
 app.use('/api/auth', userRoutes)
@@ -41,6 +42,7 @@ app.use('/api/household', householdRoutes)
 app.use('/api/migration', migrationRoutes)
 app.use('/api/fertility', fertilityRoutes)
 app.use('/api/householdcount', householdCountRoutes)
+app.use('/api/census', censusRoutes)
 
 const port = process.env.PORT || 8000
 
