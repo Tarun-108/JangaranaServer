@@ -1,5 +1,5 @@
 const Household = require("../models/household")
-const HouseholdCount = require("../models/householdCount")
+const HouseholdCount = require("../models/householdcount")
 require('express-jwt');
 
 const create = (req, res) => {

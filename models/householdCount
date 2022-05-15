@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const householdCountSchema = new mongoose.Schema({
+const householdcountSchema = new mongoose.Schema({
     censusId: {
         type: String,
         required: true,
@@ -223,8 +223,8 @@ const householdCountSchema = new mongoose.Schema({
     },
 }, { timeStamps: true })
 
-householdCountSchema.methods = {
+householdcountSchema.methods = {
 
 }
 
-module.exports = mongoose.model("HouseholdCount", householdCountSchema)
+module.exports = mongoose.model("HouseholdCount", householdcountSchema)
