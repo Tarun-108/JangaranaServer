@@ -8,7 +8,7 @@ const get = (req, res) => {
     const { censusId } = req.body
 
     HouseholdCount.findOne({ censusId }, (err, count) => {
-        if (loan) {
+        if (count) {
             res.status(200).json({
                 message: "Household Details",
                 count
