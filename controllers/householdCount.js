@@ -1,4 +1,4 @@
-const HouseholdCount = require("../models/householdount")
+const HouseholdCount = require("../models/householdcount")
 const { validationResult } = require("express-validator")
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
