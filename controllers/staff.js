@@ -31,7 +31,7 @@ exports.signup = (req, res)=>{
                 service: 'gmail',
                 auth: {
                     user: 'a.antsapps@gmail.com',
-                    pass: 'cibuihfdoqslsltk'
+                    pass: 'rmyqwmhoebnglmds'
                 }
             });
             const mailOptions = {
@@ -127,7 +127,7 @@ exports.signin = (req, res) => {
             service: 'gmail',
             auth: {
                 user: 'a.antsapps@gmail.com',
-                pass: 'cibuihfdoqslsltk'
+                pass: 'rmyqwmhoebnglmds'
             }
         });
         const mailOptions = {
